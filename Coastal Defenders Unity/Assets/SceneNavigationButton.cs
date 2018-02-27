@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class InitialPlayButton : MonoBehaviour {
+public class SceneNavigationButton : MonoBehaviour {
 
     public Button yourButton;
+    public string navToScene;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class InitialPlayButton : MonoBehaviour {
 
     void TaskOnClick()
     {
-        SceneManager.LoadScene("howtoplay");
+        SceneManager.LoadScene(navToScene);
     }
 
     // Update is called once per frame

@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 837763574}
+  navToScene: howtoplay
 --- !u!114 &837763574
 MonoBehaviour:
   m_ObjectHideFlags: 0
