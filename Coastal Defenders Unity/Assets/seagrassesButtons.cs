@@ -11,6 +11,7 @@ public class seagrassesButtons : MonoBehaviour {
     public Button minusButton;
     public Sprite[] seagrasses;
     private int count = 0;
+    public GameObject newSprite;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class seagrassesButtons : MonoBehaviour {
         Button minusbtn = minusButton.GetComponent<Button>();
         plusbtn.onClick.AddListener(PlusTaskOnClick);
         minusbtn.onClick.AddListener(MinusTaskOnClick);
+        
 
     }
 
@@ -25,11 +27,24 @@ public class seagrassesButtons : MonoBehaviour {
     {
         Debug.Log("Clicked plus button");
         count++;
+
+
+        if(count == 1)
+        {
+           
+        }
+        if (count == 2)
+        {
+            
+        }
+      
         if (count >= seagrasses.Length)
         {
             count = 3;
-        }
-
+    
+       
+            
+        }  
         Debug.Log(count);
 
     }
@@ -40,7 +55,7 @@ public class seagrassesButtons : MonoBehaviour {
         if (count < 0)
         {
             count = 0;
-            return;
+            
         }
 
         Debug.Log(count);
