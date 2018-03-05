@@ -10,8 +10,8 @@ public class seagrassesButtons : MonoBehaviour {
     public Button plusButton;
     public Button minusButton;
     public Sprite[] seagrasses;
+    public SpriteRenderer render;
     private int count = 0;
-    public GameObject newSprite;
 
     void Awake()
     {
@@ -23,20 +23,32 @@ public class seagrassesButtons : MonoBehaviour {
 
     }
 
+    void Update()
+    {
+        if (count == 0)
+        {
+            render.sprite = null;
+        }
+        else if (count == 1)
+        {
+            render.sprite = seagrasses[0];
+        }
+        else if (count == 2)
+        {
+            render.sprite = seagrasses[1];
+
+        }
+        else if (count == 3)
+        {
+            render.sprite = seagrasses[2];
+
+        }
+    }
+
     void PlusTaskOnClick()
     {
         Debug.Log("Clicked plus button");
         count++;
-
-
-        if(count == 1)
-        {
-           
-        }
-        if (count == 2)
-        {
-            
-        }
       
         if (count >= seagrasses.Length)
         {
