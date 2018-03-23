@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 58172544}
   - component: {fileID: 58172546}
   - component: {fileID: 58172545}
+  - component: {fileID: 58172547}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -253,13 +254,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time: xxx'
+  m_Text: 'Time: 180'
 --- !u!222 &58172546
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58172543}
+--- !u!114 &58172547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58172543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a6a58a3592d844fbd33d8ff39a2550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLeft: 180
+  countdownText: {fileID: 58172545}
+  navToScene: endgame
 --- !u!1 &145727477
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 0}
   plusButton: {fileID: 1303595175}
   minusButton: {fileID: 2113633387}
   seagrasses:
@@ -610,6 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1890667831}
   minusButton: {fileID: 284285261}
   seagrasses:
@@ -987,13 +1006,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 48
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Points: xxx'
+  m_Text: 'Points: 100'
 --- !u!222 &718584035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1565,6 +1584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1486348824}
   minusButton: {fileID: 1184815273}
   seagrasses:
@@ -1755,6 +1776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1303595175}
   minusButton: {fileID: 2113633387}
   seagrasses:
@@ -1936,6 +1959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1486348824}
   minusButton: {fileID: 1184815273}
   seagrasses:
@@ -2263,6 +2288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1978291910}
   minusButton: {fileID: 1837096235}
   seagrasses:
@@ -2344,6 +2371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1890667831}
   minusButton: {fileID: 284285261}
   seagrasses:
@@ -2474,6 +2503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1978291910}
   minusButton: {fileID: 1837096235}
   seagrasses:
@@ -2898,6 +2929,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e85e3b606fb9e4491abdd962f9eb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsLeft: 100
+  pointsLeftText: {fileID: 718584034}
   plusButton: {fileID: 1303595175}
   minusButton: {fileID: 2113633387}
   seagrasses:
