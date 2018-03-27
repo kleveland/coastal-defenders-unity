@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Button))]
-public class seagrassesButtons : MonoBehaviour
+public class resourceButtons : MonoBehaviour
 {
     public int pointsLeft = 100;
     public Text pointsLeftText;
     public Button plusButton;
     public Button minusButton;
-    public Sprite[] seagrasses;
+    public Sprite[] resource;
     public SpriteRenderer render;
     private int count = 0;
 
@@ -34,17 +34,17 @@ public class seagrassesButtons : MonoBehaviour
         }
         else if (count == 1)
         {
-            render.sprite = seagrasses[0];
+            render.sprite = resource[0];
             pointsLeftText.text = ("Points: " + pointsLeft);
         }
         else if (count == 2)
         {
-            render.sprite = seagrasses[1];
+            render.sprite = resource[1];
             pointsLeftText.text = ("Points: " + pointsLeft);
         }
         else if (count == 3)
         {
-            render.sprite = seagrasses[2];
+            render.sprite = resource[2];
             pointsLeftText.text = ("Points: " + pointsLeft);
         }
     }
@@ -54,7 +54,7 @@ public class seagrassesButtons : MonoBehaviour
         Debug.Log("Clicked plus button");
         pointsLeft -= 10;
         count++;
-        if (count >= seagrasses.Length)
+        if (count >= resource.Length)
         {
             count = 3;
             pointsLeft += 10;
