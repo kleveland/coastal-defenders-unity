@@ -16,16 +16,8 @@ let config = {
 };
 
 
-config.port = process.env.OPENSHIFT_NODEJS_PORT || 4000;
-config.ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-
-if (process.env.OPENSHIFT_MYSQL_PASSWORD) {
-    config.database.host = process.env.MYSQL_SERVICE_HOST;
-    config.database.port = process.env.MYSQL_SERVICE_PORT;
-    config.database.user = process.env.OPENSHIFT_MYSQL_USER;
-    config.database.password = process.env.OPENSHIFT_MYSQL_PASSWORD;
-    config.database.database = process.env.OPENSHIFT_MYSQL_DATABASE;
-}
+config.port = 4000;
+config.ip = '127.0.0.1';
 
 var con = mysql.createConnection({
     host: config.database.host,
@@ -36,7 +28,7 @@ var con = mysql.createConnection({
 });
 
 function getScores(cb) {
-    con.query("SELECT * FROM leaderboards", function (err, result, fields) {
+    con.query("SELECT * FROM scores", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
         cb(result);
