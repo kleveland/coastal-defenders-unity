@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Button))]
-public class seagrassesButtons : MonoBehaviour {
-
+public class resourceButtons : MonoBehaviour
+{
+    public int pointsLeft = 100;
+    public Text pointsLeftText;
     public Button plusButton;
     public Button minusButton;
-    public Sprite[] seagrasses;
+    public Sprite[] resource;
     public SpriteRenderer render;
     private int count = 0;
+
 
     void Awake()
     {
@@ -20,7 +23,6 @@ public class seagrassesButtons : MonoBehaviour {
         plusbtn.onClick.AddListener(PlusTaskOnClick);
         minusbtn.onClick.AddListener(MinusTaskOnClick);
         
-
     }
 
     void Update()
@@ -28,48 +30,48 @@ public class seagrassesButtons : MonoBehaviour {
         if (count == 0)
         {
             render.sprite = null;
+            pointsLeftText.text = ("Points: " + pointsLeft);
         }
         else if (count == 1)
         {
-            render.sprite = seagrasses[0];
+            render.sprite = resource[0];
+            pointsLeftText.text = ("Points: " + pointsLeft);
         }
         else if (count == 2)
         {
-            render.sprite = seagrasses[1];
-
+            render.sprite = resource[1];
+            pointsLeftText.text = ("Points: " + pointsLeft);
         }
         else if (count == 3)
         {
-            render.sprite = seagrasses[2];
-
+            render.sprite = resource[2];
+            pointsLeftText.text = ("Points: " + pointsLeft);
         }
     }
 
     void PlusTaskOnClick()
     {
         Debug.Log("Clicked plus button");
+        pointsLeft -= 10;
         count++;
-      
-        if (count >= seagrasses.Length)
+        if (count >= resource.Length)
         {
             count = 3;
-    
-       
-            
-        }  
+            pointsLeft += 10;
+        }
         Debug.Log(count);
-
     }
+
     void MinusTaskOnClick()
     {
         Debug.Log("Clicked minus button");
+        pointsLeft += 10;
         count--;
         if (count < 0)
         {
             count = 0;
-            
+            pointsLeft -= 10;
         }
-
         Debug.Log(count);
     }
 }

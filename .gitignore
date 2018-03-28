@@ -33,3 +33,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 /Coastal Defenders Unity/server/node_modules/
+*.ide
