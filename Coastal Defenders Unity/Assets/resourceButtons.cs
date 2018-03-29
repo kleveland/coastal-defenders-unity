@@ -18,6 +18,7 @@ public class resourceButtons : MonoBehaviour
 
     void Awake()
     {
+
         Button plusbtn = plusButton.GetComponent<Button>();
         Button minusbtn = minusButton.GetComponent<Button>();
         plusbtn.onClick.AddListener(PlusTaskOnClick);
