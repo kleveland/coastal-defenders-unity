@@ -71,7 +71,7 @@ public class SolutionController : MonoBehaviour
         {
             if ((pointsLeftText.pointsCount - ((int)(cost * 0.5))) >= 0)
             {
-                pointsLeftText.pointsCount -= (int)(cost * 0.5);
+                pointsLeftText.pointsCount += (int)(cost * 0.5);
                 count++;
             }
         }
@@ -96,7 +96,7 @@ public class SolutionController : MonoBehaviour
         Debug.Log("startcount:" + startcount);
         if (count <= startcount && count != 0)
         {
-            pointsLeftText.pointsCount += (int)(cost * 0.5);
+            pointsLeftText.pointsCount -= (int)(cost * 0.5);
         }
         else if (count != 0)
         {
