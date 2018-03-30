@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public int timeLeft = 180;
+    public int timeLeft;
     public Text countdownText;
     public string navToScene;
     // Use this for initialization

@@ -23,7 +23,7 @@ public class resourceButtons : MonoBehaviour
         Button minusbtn = minusButton.GetComponent<Button>();
         plusbtn.onClick.AddListener(PlusTaskOnClick);
         minusbtn.onClick.AddListener(MinusTaskOnClick);
-        
+
     }
 
     void Update()

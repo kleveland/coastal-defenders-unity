@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneNavigationButton : MonoBehaviour {
+public class SceneNavigationButton : MonoBehaviour
+{
 
     public Button yourButton;
     public string navToScene;
@@ -21,7 +22,8 @@ public class SceneNavigationButton : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }
