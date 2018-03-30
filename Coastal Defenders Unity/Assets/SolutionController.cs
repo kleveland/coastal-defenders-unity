@@ -34,9 +34,9 @@ public class SolutionController : MonoBehaviour
         render = GameObject.FindGameObjectWithTag(resourcename).GetComponent<SpriteRenderer>();
         pointsLeftText = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsController>();
         resource = new Sprite[resourcecount];
-        for(int i=0; i<resourcecount; i++)
+        for (int i = 0; i < resourcecount; i++)
         {
-            resource[i] = Resources.Load<Sprite>("Solutions/" + resourcename + (i+1));
+            resource[i] = Resources.Load<Sprite>("Solutions/" + resourcename + (i + 1));
         }
         plusButton.onClick.AddListener(PlusTaskOnClick);
         minusButton.onClick.AddListener(MinusTaskOnClick);
