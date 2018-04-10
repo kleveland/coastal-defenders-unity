@@ -19,7 +19,7 @@ public class mySqlConnection : MonoBehaviour {
     {
         for(int i=0; i<scoreEntries.Length; i++)
         {
-            Debug.Log(i + ": " + scoreEntries[i].name + ": " + scoreEntries[i].score);
+            Debug.Log(i + ": " + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score);
         }
     }
 
@@ -72,6 +72,10 @@ public static class JsonHelper
 public class ScoreEntry
 {
     public int id = 0;
-    public string name = "test";
-    public int score = 1;
+    public string player_initials = "test";
+    public int total_score = 1;
+    public int land_saved_score = 1;
+    public int human_protection_score = 1;
+    public int animal_protection_score = 1;
+    public string created_at = "date";
 }
