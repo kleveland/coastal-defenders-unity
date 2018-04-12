@@ -523,7 +523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -900, y: 672.76}
+  m_AnchoredPosition: {x: 1200, y: 672.76}
   m_SizeDelta: {x: 326.5, y: 78.47998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872551863
@@ -576,8 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5b79a477d4c9a448b5993cd2297d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 1200
-  speed: 4
+  target: -1100
+  speed: -4
   url: localhost:4000/leaderboard/scores
   scoreEntries: []
 --- !u!1 &897092602

@@ -50,7 +50,7 @@ public class ScrollingLeaderboard : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (leaderboard.localPosition.x >= target)
+        if (leaderboard.localPosition.x <= target)
         {
             leaderboard.localPosition = init;
         }
