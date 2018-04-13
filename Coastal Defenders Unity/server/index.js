@@ -10,7 +10,7 @@ let config = {
         host: "localhost",
         user: "root",
         password: "",
-        database: "coastaldefenders",
+        database: "comp585",
         port: 3306
     }
 };
@@ -36,6 +36,7 @@ function getScores(cb) {
 }
 
 app.get('/leaderboard/scores', (req, res) => {
+    console.log("request found");
     getScores((result) => {
         let obj = {Items: result};
         console.log(obj);

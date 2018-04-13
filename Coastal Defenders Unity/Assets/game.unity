@@ -839,6 +839,15 @@ MonoBehaviour:
   count: 0
   cost: 40
   startcount: 0
+  bulkheadTier: 0
+  sandduneTier: 0
+  sandbagTier: 0
+  seagrassTier: 0
+  barDisplay: 0
+  pos: {x: 20, y: 40}
+  size: {x: 60, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &487128534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1171,6 +1180,15 @@ MonoBehaviour:
   count: 0
   cost: 30
   startcount: 0
+  bulkheadTier: 0
+  sandduneTier: 0
+  sandbagTier: 0
+  seagrassTier: 0
+  barDisplay: 0
+  pos: {x: 20, y: 40}
+  size: {x: 60, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!222 &606516826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3940,6 +3958,15 @@ MonoBehaviour:
   count: 0
   cost: 10
   startcount: 0
+  bulkheadTier: 0
+  sandduneTier: 0
+  sandbagTier: 0
+  seagrassTier: 0
+  barDisplay: 0
+  pos: {x: 20, y: 40}
+  size: {x: 60, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &1889548165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4045,6 +4072,15 @@ MonoBehaviour:
   count: 0
   cost: 20
   startcount: 0
+  bulkheadTier: 0
+  sandduneTier: 0
+  sandbagTier: 0
+  seagrassTier: 0
+  barDisplay: 0
+  pos: {x: 20, y: 40}
+  size: {x: 60, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &1908166398
 SpriteRenderer:
   m_ObjectHideFlags: 0
