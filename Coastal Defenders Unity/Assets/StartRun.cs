@@ -6,7 +6,7 @@ public class StartRun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Screen.SetResolution(540, 960, false);
+        //Screen.SetResolution(540, 960, false);
     }
 	
 	// Update is called once per frame
