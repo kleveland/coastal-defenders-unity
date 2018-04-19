@@ -14,13 +14,19 @@ public class SolutionController : MonoBehaviour
     public string resourcename;
     public int resourcecount;
     private SpriteRenderer render;
-    private Sprite[] resource;
+    private SpriteRenderer tier_circle;
+    //private Sprite[] resource;
     public int count = 0;
     public int cost;
     private Text costText;
     public int startcount;
     public int bulkheadTier, sandduneTier, sandbagTier, seagrassTier;
     //values go land, human, animal
+    public float inactive_opacity;
+    private Color inactive;
+    private Color active;
+    private Color start_tier_color;
+    private Color diff_tier_color;
     private int[] bulkScores = new int[] { 5, 5, 1 };
     private int[] seagrassScores = new int[] { 2, 1, 3 };
     private int[] sandduneScores = new int[] { 3, 2, 3 };
@@ -35,6 +41,10 @@ public class SolutionController : MonoBehaviour
 
     void Awake()
     {
+        inactive = new Color(1f, 1f, 1f, inactive_opacity);
+        active = new Color(1f, 1f, 1f, 1f);
+        start_tier_color = new Color(70 / 255.0f, 193 / 255.0f, 73 / 255.0f, 1f);
+        diff_tier_color = new Color(140 / 255.0f, 25 / 255.0f, 36 / 255.0f, 1f);
         Button[] buttons = this.GetComponentsInChildren<Button>();
         Text[] textinp = this.GetComponentsInChildren<Text>();
         tierTracker = textinp[1];
@@ -42,13 +52,16 @@ public class SolutionController : MonoBehaviour
         costText.text = cost.ToString();
         plusButton = buttons[0].GetComponent<Button>();
         minusButton = buttons[1].GetComponent<Button>();
-        render = GameObject.FindGameObjectWithTag(resourcename).GetComponent<SpriteRenderer>();
+        SpriteRenderer[] spritelist = this.GetComponentsInChildren<SpriteRenderer>();
+        render = spritelist[2];
+        tier_circle = spritelist[3];
+        Debug.Log(tier_circle);
         pointsLeftText = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsController>();
-        resource = new Sprite[resourcecount];
+        /*resource = new Sprite[resourcecount];
         for (int i = 0; i < resourcecount; i++)
         {
             resource[i] = Resources.Load<Sprite>("Solutions/" + resourcename + (i + 1));
-        }
+        }*/
         plusButton.onClick.AddListener(PlusTaskOnClick);
         minusButton.onClick.AddListener(MinusTaskOnClick);
     }
@@ -57,6 +70,20 @@ public class SolutionController : MonoBehaviour
     void Update()
     {
         if (count == 0)
+        {
+            render.color = inactive;
+        } else
+        {
+            render.color = active;
+        }
+        if(count == startcount)
+        {
+            tier_circle.color = start_tier_color;
+        } else
+        {
+            tier_circle.color = diff_tier_color;
+        }
+        /*if (count == 0)
         {
             render.sprite = null;
         }
@@ -71,7 +98,7 @@ public class SolutionController : MonoBehaviour
         else if (count == 3)
         {
             render.sprite = resource[2];
-        }
+        }*/
         tierTracker.text = count.ToString();
         if (resourcename == "wall")
         {
@@ -106,7 +133,7 @@ public class SolutionController : MonoBehaviour
             pointsLeftText.pointsCount -= cost;
             count++;
         }
-        if (count >= resource.Length)
+        if (count >= 3)
         {
             count = 3;
         }

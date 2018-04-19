@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdownText.text = ("Time: " + timeLeft);
+        countdownText.text = timeLeft.ToString();
 
         if (timeLeft <= 0)
         {
