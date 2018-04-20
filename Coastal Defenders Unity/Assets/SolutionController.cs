@@ -27,17 +27,11 @@ public class SolutionController : MonoBehaviour
     private Color active;
     private Color start_tier_color;
     private Color diff_tier_color;
-    private int[] bulkScores = new int[] { 5, 5, 1 };
-    private int[] seagrassScores = new int[] { 2, 1, 3 };
-    private int[] sandduneScores = new int[] { 3, 2, 3 };
-    private int[] sandbagScores = new int[] { 3, 1, 2 };
+    
     private float effectiveness;
     //effectiveness bar display
-    public float barDisplay; //current progress
-    public Vector2 pos = new Vector2(-200, 600);
-    public Vector2 size = new Vector2(250, 100);
-    public Texture2D emptyTex;
-    public Texture2D fullTex;
+    //current progress
+    
 
     void Awake()
     {
@@ -100,23 +94,6 @@ public class SolutionController : MonoBehaviour
             render.sprite = resource[2];
         }*/
         tierTracker.text = count.ToString();
-        if (resourcename == "wall")
-        {
-            bulkheadTier = count;
-        }
-        else if (resourcename == "sandbag")
-        {
-            sandbagTier = count;
-        }
-        else if (resourcename == "seagrass")
-        {
-            seagrassTier = count;
-        }
-        else if (resourcename == "sanddune")
-        {
-            sandduneTier = count;
-        }
-        barDisplay = returnEffectiveness();
     }
 
     void PlusTaskOnClick()
@@ -161,24 +138,4 @@ public class SolutionController : MonoBehaviour
         Debug.Log(count);
     }
 
-    private float returnEffectiveness()
-    {
-        float netLand = bulkheadTier * bulkScores[0] + seagrassTier * seagrassScores[0] + sandduneTier * sandduneScores[0] + sandbagTier * sandbagScores[0];
-        float netHuman = bulkheadTier * bulkScores[1] + seagrassTier * seagrassScores[1] + sandduneTier * sandduneScores[1] + sandbagTier * sandbagScores[1];
-        float netAnimal = bulkheadTier * bulkScores[2] + seagrassTier * seagrassScores[2] + sandduneTier * sandduneScores[2] + sandbagTier * sandbagScores[2];
-        return effectiveness = (((.5f * (netLand / 15f)) + (.25f * (netHuman / 15f)) + (.25f * (netAnimal / 15f))));
-    }
-
-    void OnGUI()
-    {
-        //draw the background:
-        GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
-
-        //draw the filled-in part:
-        GUI.BeginGroup(new Rect(0, 0, size.x * barDisplay, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
-        GUI.EndGroup();
-        GUI.EndGroup();
-    }
 }

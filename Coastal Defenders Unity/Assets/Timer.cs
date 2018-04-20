@@ -12,12 +12,13 @@ public class Timer : MonoBehaviour
     void Start()
     {
         StartCoroutine("LoseTime");
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        countdownText.text = timeLeft.ToString();
+        countdownText.text = ("0:" + timeLeft);
 
         if (timeLeft <= 0)
         {
