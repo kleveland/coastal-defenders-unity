@@ -336,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 330.5, y: -35}
-  m_SizeDelta: {x: 84, y: 55.211}
+  m_AnchoredPosition: {x: 300, y: -27.605}
+  m_SizeDelta: {x: 100, y: 55.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58172545
 MonoBehaviour:
@@ -371,7 +371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 180
+  m_Text: 0:00
 --- !u!222 &58172546
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a6a58a3592d844fbd33d8ff39a2550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 180
+  timeLeft: 45
   countdownText: {fileID: 58172545}
   navToScene: endgame
 --- !u!1 &145727477
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eed158ddb56d2f45ba7c8f7f7882252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcename: sanddune
+  resourcename: oysterreef
   resourcecount: 3
   count: 0
   cost: 40
@@ -1455,11 +1455,6 @@ MonoBehaviour:
   sandbagTier: 0
   seagrassTier: 0
   inactive_opacity: 0.5
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 0}
-  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &487128534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1929,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eed158ddb56d2f45ba7c8f7f7882252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcename: wall
+  resourcename: seagrass
   resourcecount: 3
   count: 0
   cost: 10
@@ -1939,11 +1934,6 @@ MonoBehaviour:
   sandbagTier: 0
   seagrassTier: 0
   inactive_opacity: 0.5
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 0}
-  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &572198208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2091,7 +2081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eed158ddb56d2f45ba7c8f7f7882252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcename: seagrass
+  resourcename: floodgate
   resourcecount: 3
   count: 0
   cost: 30
@@ -2101,11 +2091,6 @@ MonoBehaviour:
   sandbagTier: 0
   seagrassTier: 0
   inactive_opacity: 0.5
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 0}
-  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!222 &606516826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2447,6 +2432,8 @@ RectTransform:
   m_Children:
   - {fileID: 58172544}
   - {fileID: 718584033}
+  - {fileID: 1033156536}
+  - {fileID: 785900872}
   m_Father: {fileID: 1157480187}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2751,6 +2738,116 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &785900871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 785900872}
+  - component: {fileID: 785900875}
+  - component: {fileID: 785900874}
+  - component: {fileID: 785900873}
+  m_Layer: 5
+  m_Name: Effectiveness Bar Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &785900872
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785900871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 730316368}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -980, y: 0}
+  m_SizeDelta: {x: 600, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &785900873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785900871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d996c04df2f234fa66996b1560ba03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -680
+  maxX: -80
+  effBar: {fileID: 785900872}
+  speed: 5
+  solutions:
+  - {fileID: 1908166397}
+  - {fileID: 487128533}
+  - {fileID: 1889548164}
+  - {fileID: 606516825}
+  - {fileID: 572198207}
+  bulkheadScores:
+  - 5
+  - 5
+  - 1
+  seagrassScores:
+  - 2
+  - 1
+  - 3
+  sandduneScores:
+  - 3
+  - 2
+  - 4
+  floodgateScores:
+  - 4
+  - 3
+  - 2
+  oysterScores:
+  - 1
+  - 2
+  - 5
+--- !u!114 &785900874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785900871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &785900875
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785900871}
 --- !u!1 &947186977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3254,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016280813}
+--- !u!1 &1033156535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1033156536}
+  - component: {fileID: 1033156538}
+  - component: {fileID: 1033156537}
+  m_Layer: 5
+  m_Name: Effectiveness Bar Outline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1033156536
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1033156535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 730316368}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: 0}
+  m_SizeDelta: {x: 600, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1033156537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1033156535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1033156538
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1033156535}
 --- !u!1 &1120602825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5478,7 +5643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eed158ddb56d2f45ba7c8f7f7882252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcename: wall
+  resourcename: bulkhead
   resourcecount: 3
   count: 0
   cost: 10
@@ -5488,11 +5653,6 @@ MonoBehaviour:
   sandbagTier: 0
   seagrassTier: 0
   inactive_opacity: 0.5
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 0}
-  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &1889548165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5670,7 +5830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eed158ddb56d2f45ba7c8f7f7882252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcename: sandbag
+  resourcename: sanddune
   resourcecount: 3
   count: 0
   cost: 20
@@ -5680,11 +5840,6 @@ MonoBehaviour:
   sandbagTier: 0
   seagrassTier: 0
   inactive_opacity: 0.5
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 0}
-  fullTex: {fileID: 2800000, guid: e9c21a5d777a59342add27521b0dca65, type: 3}
 --- !u!212 &1908166398
 SpriteRenderer:
   m_ObjectHideFlags: 0

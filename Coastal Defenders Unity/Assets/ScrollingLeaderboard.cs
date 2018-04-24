@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScrollingLeaderboard : MonoBehaviour {
+public class ScrollingLeaderboard : MonoBehaviour
+{
     public float target;
     public float speed;
     private RectTransform leaderboard;
@@ -18,7 +19,8 @@ public class ScrollingLeaderboard : MonoBehaviour {
         StartCoroutine(getScores());
     }
 
-    void Start () {
+    void Start()
+    {
         leaderboard = this.GetComponent<RectTransform>();
         init = leaderboard.localPosition;
     }
@@ -49,7 +51,8 @@ public class ScrollingLeaderboard : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (leaderboard.localPosition.x <= target)
         {
             leaderboard.localPosition = init;
@@ -58,5 +61,5 @@ public class ScrollingLeaderboard : MonoBehaviour {
         {
             leaderboard.localPosition = new Vector2(leaderboard.localPosition.x + speed, leaderboard.localPosition.y);
         }
-	}
+    }
 }
