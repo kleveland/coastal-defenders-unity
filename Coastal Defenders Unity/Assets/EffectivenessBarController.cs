@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectivenessBar : MonoBehaviour
+public class EffectivenessBarController : MonoBehaviour
 {
     private float barDisplay;
     private float netLand, netHuman, netAnimal;
-    private float minX = -680;
-    private float maxX = -80;
+    public float minX;
+    public float maxX;
+
     private float target;
     public RectTransform effBar;
     private Vector2 init;
@@ -29,7 +30,6 @@ public class EffectivenessBar : MonoBehaviour
     void Awake()
     {
         effBar = this.GetComponent<RectTransform>();
-        init = effBar.localPosition;
     }
 
     private float returnEffectiveness()
@@ -37,22 +37,31 @@ public class EffectivenessBar : MonoBehaviour
         netLand = solutions[0].count * sandduneScores[0] + solutions[1].count * oysterScores[0] + solutions[2].count * bulkheadScores[0] + solutions[3].count * floodgateScores[0] + solutions[4].count * seagrassScores[0];
         netHuman = solutions[0].count * sandduneScores[1] + solutions[1].count * oysterScores[1] + solutions[2].count * bulkheadScores[1] + solutions[3].count * floodgateScores[1] + solutions[4].count * seagrassScores[1];
         netAnimal = solutions[0].count * sandduneScores[2] + solutions[1].count * oysterScores[2] + solutions[2].count * bulkheadScores[2] + solutions[3].count * floodgateScores[2] + solutions[4].count * seagrassScores[2];
+        PlayerPrefs.SetFloat("netLand", netLand);
+        PlayerPrefs.SetFloat("netHuman", netHuman);
+        PlayerPrefs.SetFloat("netAnimal", netAnimal);
+        //Debug.Log("netLand:" + netLand + "\n netHuman:" + netHuman + "\n netAnimal:" + netAnimal);
+        return ((.5f * (netLand / 25f)) + (.25f * (netHuman / 25f)) + (.25f * (netAnimal / 25f)));
 
-        return ((.5f * (netLand / 15f)) + (.25f * (netHuman / 15f)) + (.25f * (netAnimal / 15f)));
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        float diffX = maxX - minX;
         barDisplay = returnEffectiveness();
+        //Debug.Log("barDisplay: " + barDisplay);
         //600 is difference
-        target = barDisplay * 600 - 680;
-        Debug.Log(target);
-        if (effBar.localPosition.x < target)
+        target = barDisplay * diffX + minX;
+
+        //Debug.Log("Target:" + target);
+
+        if (effBar.localPosition.x <= (target - speed / 2))
         {
             effBar.localPosition = new Vector2(effBar.localPosition.x + speed, effBar.localPosition.y);
-        }else if(effBar.localPosition.x > target){
+        }
+        else if (effBar.localPosition.x >= (target + speed / 2))
+        {
             effBar.localPosition = new Vector2(effBar.localPosition.x - speed, effBar.localPosition.y);
         }
 

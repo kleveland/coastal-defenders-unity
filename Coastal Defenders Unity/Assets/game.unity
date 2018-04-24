@@ -2750,7 +2750,7 @@ GameObject:
   - component: {fileID: 785900874}
   - component: {fileID: 785900873}
   m_Layer: 5
-  m_Name: Effectiveness Bar
+  m_Name: Effectiveness Bar Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2771,7 +2771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 0}
+  m_AnchoredPosition: {x: -980, y: 0}
   m_SizeDelta: {x: 600, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785900873
@@ -2785,8 +2785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d996c04df2f234fa66996b1560ba03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effBar: {fileID: 0}
-  speed: 3
+  minX: -680
+  maxX: -80
+  effBar: {fileID: 785900872}
+  speed: 5
   solutions:
   - {fileID: 1908166397}
   - {fileID: 487128533}

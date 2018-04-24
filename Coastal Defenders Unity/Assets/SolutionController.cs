@@ -27,11 +27,11 @@ public class SolutionController : MonoBehaviour
     private Color active;
     private Color start_tier_color;
     private Color diff_tier_color;
-    
+
     private float effectiveness;
     //effectiveness bar display
     //current progress
-    
+
 
     void Awake()
     {
@@ -66,14 +66,16 @@ public class SolutionController : MonoBehaviour
         if (count == 0)
         {
             render.color = inactive;
-        } else
+        }
+        else
         {
             render.color = active;
         }
-        if(count == startcount)
+        if (count == startcount)
         {
             tier_circle.color = start_tier_color;
-        } else
+        }
+        else
         {
             tier_circle.color = diff_tier_color;
         }
