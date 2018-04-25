@@ -102,12 +102,12 @@ public class SolutionController : MonoBehaviour
     {
         Debug.Log("Clicked plus button");
         Debug.Log("startcount:" + startcount);
-        if (count < startcount && count != resourcecount && (pointsLeftText.pointsCount - ((int)(cost * 0.5))) >= 0)
+        if (count < startcount && count != resourcecount && (pointsLeftText.pointsCount- (int)(cost * 0.5)) >= 0)
         {
-            pointsLeftText.pointsCount += (int)(cost * 0.5);
+            pointsLeftText.pointsCount -= (int)(cost * 0.5);
             count++;
         }
-        else if (count != resourcecount && (pointsLeftText.pointsCount - cost) >= 0)
+        else if (count >= startcount && count != resourcecount && (pointsLeftText.pointsCount - cost) >= 0)
         {
             pointsLeftText.pointsCount -= cost;
             count++;
@@ -123,9 +123,10 @@ public class SolutionController : MonoBehaviour
     {
         Debug.Log("Clicked minus button");
         Debug.Log("startcount:" + startcount);
-        if (count <= startcount && count != 0 && (pointsLeftText.pointsCount - ((int)(cost * 0.5))) >= 0)
+
+        if (count <= startcount && count != 0)
         {
-            pointsLeftText.pointsCount -= (int)(cost * 0.5);
+            pointsLeftText.pointsCount += (int)(cost * 0.5);
             count--;
         }
         else if (count != 0 && count > startcount)
