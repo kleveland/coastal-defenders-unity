@@ -18,13 +18,25 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdownText.text = ("0:" + timeLeft);
+      
+        //timer in seconds
+        //if timer runs to 0, automatically start simulation
 
         if (timeLeft <= 0)
         {
             StopCoroutine("LoseTime");
             countdownText.text = "Times Up!";
             SceneManager.LoadScene(navToScene);
+        }
+
+        if (timeLeft < 10)
+        {
+            countdownText.text = ("0:0" + timeLeft);
+        }
+
+        else
+        {
+            countdownText.text = ("0:" + timeLeft);
         }
     }
 
