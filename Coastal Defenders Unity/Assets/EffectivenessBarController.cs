@@ -51,7 +51,7 @@ public class EffectivenessBarController : MonoBehaviour
         float diffX = maxX - minX;
         barDisplay = returnEffectiveness();
         //Debug.Log("barDisplay: " + barDisplay);
-        //600 is difference
+        
         target = barDisplay * diffX + minX;
 
         //Debug.Log("Target:" + target);
