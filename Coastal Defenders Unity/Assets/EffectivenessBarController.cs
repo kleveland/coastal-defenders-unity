@@ -22,10 +22,10 @@ public class EffectivenessBarController : MonoBehaviour
 
     //values go land, human, animal
     public float[] bulkheadScores = new float[] { 5, 5, 1 };
-    public float[] seagrassScores = new float[] { 2, 1, 3 };
-    public float[] sandduneScores = new float[] { 3, 2, 4 };
-    public float[] floodgateScores = new float[] { 4, 3, 2 };
-    public float[] oysterScores = new float[] { 1, 2, 5 };
+    public float[] seagrassScores = new float[] { 3, 1, 3 };
+    public float[] sandduneScores = new float[] { 3, 2, 2 };
+    public float[] floodgateScores = new float[] { 4, 6, 2 };
+    public float[] oysterScores = new float[] { 1, 1, 5 };
     // Use this for initialization
     void Awake()
     {
@@ -40,7 +40,7 @@ public class EffectivenessBarController : MonoBehaviour
         PlayerPrefs.SetFloat("netLand", netLand);
         PlayerPrefs.SetFloat("netHuman", netHuman);
         PlayerPrefs.SetFloat("netAnimal", netAnimal);
-        //Debug.Log("netLand:" + netLand + "\n netHuman:" + netHuman + "\n netAnimal:" + netAnimal);
+        Debug.Log("netLand:" + netLand + "\n netHuman:" + netHuman + "\n netAnimal:" + netAnimal);
         return ((.5f * (netLand / 25f)) + (.25f * (netHuman / 25f)) + (.25f * (netAnimal / 25f)));
 
     }
@@ -50,13 +50,16 @@ public class EffectivenessBarController : MonoBehaviour
     {
         float diffX = maxX - minX;
         barDisplay = returnEffectiveness();
-        //Debug.Log("barDisplay: " + barDisplay);
-        
+        Debug.Log("barDisplay: " + barDisplay);
+
         target = barDisplay * diffX + minX;
 
-        //Debug.Log("Target:" + target);
-
-        if (effBar.localPosition.x <= (target - speed / 2))
+        Debug.Log("Target:" + target);
+        if (target >= maxX)
+        {
+            effBar.localPosition = new Vector2(maxX, effBar.localPosition.y);
+        }
+        else if (effBar.localPosition.x <= (target - speed / 2))
         {
             effBar.localPosition = new Vector2(effBar.localPosition.x + speed, effBar.localPosition.y);
         }
@@ -64,6 +67,5 @@ public class EffectivenessBarController : MonoBehaviour
         {
             effBar.localPosition = new Vector2(effBar.localPosition.x - speed, effBar.localPosition.y);
         }
-
     }
 }
