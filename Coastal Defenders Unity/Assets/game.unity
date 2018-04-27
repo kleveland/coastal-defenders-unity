@@ -1869,7 +1869,7 @@ MonoBehaviour:
   resourcename: floodgate
   resourcecount: 3
   count: 0
-  cost: 40
+  cost: 90
   startcount: 0
   bulkheadTier: 0
   sandduneTier: 0

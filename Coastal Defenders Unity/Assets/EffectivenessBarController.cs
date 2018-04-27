@@ -22,10 +22,10 @@ public class EffectivenessBarController : MonoBehaviour
 
     //values go land, human, animal
     public float[] bulkheadScores = new float[] { 5, 5, 1 };
-    public float[] seagrassScores = new float[] { 2, 1, 3 };
-    public float[] sandduneScores = new float[] { 3, 2, 4 };
-    public float[] floodgateScores = new float[] { 4, 3, 2 };
-    public float[] oysterScores = new float[] { 1, 2, 5 };
+    public float[] seagrassScores = new float[] { 3, 1, 3 };
+    public float[] sandduneScores = new float[] { 3, 2, 2 };
+    public float[] floodgateScores = new float[] { 4, 6, 2 };
+    public float[] oysterScores = new float[] { 1, 1, 5 };
     // Use this for initialization
     void Awake()
     {
