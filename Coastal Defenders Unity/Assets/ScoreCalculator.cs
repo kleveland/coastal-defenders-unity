@@ -21,7 +21,8 @@ public class ScoreCalculator : MonoBehaviour
         netScore = netLandScore + netHumanScore + netAnimalScore;
 
         PlayerPrefs.SetFloat("netScore", Mathf.RoundToInt(netScore));
-        netScoreText.text = "Total Score: " + Mathf.RoundToInt(netScore);
+        netScoreText.text = "Your Score\n<size=86> " + Mathf.RoundToInt(netScore)+"</size>";
+
         subScoreText.text = "Land Score: " + Mathf.RoundToInt(netLandScore) + "\nHuman Score: " + Mathf.RoundToInt(netHumanScore) + "\nAnimal Score: " + Mathf.RoundToInt(netAnimalScore);
 
 
