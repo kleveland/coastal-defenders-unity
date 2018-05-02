@@ -1,6 +1,10 @@
 const express = require('express'),
     mysql = require('mysql'),
-    app = express();
+    app = express(),
+    bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 
 let config = {
@@ -28,11 +32,25 @@ var con = mysql.createConnection({
 });
 
 function getScores(cb) {
-    con.query("SELECT * FROM scores", function (err, result, fields) {
+    con.query("SELECT * FROM scores ORDER BY total_score", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
         cb(result);
     })
+}
+
+function postScores(dat) {
+    let insertDat = [];
+    insertDat.push(dat.initials);
+    insertDat.push(dat.total_score);
+    insertDat.push(dat.land_saved_score);
+    insertDat.push(dat.human_protection_score);
+    insertDat.push(dat.animal_protection_score);
+    console.log(insertDat);
+    con.query("INSERT INTO scores (player_initials, total_score,land_saved_score,human_protection_score,animal_protection_score) VALUES (?)", [insertDat], function(err, result) {
+       if(err) throw err;
+        cb();
+    });
 }
 
 app.get('/leaderboard/scores', (req, res) => {
@@ -41,6 +59,12 @@ app.get('/leaderboard/scores', (req, res) => {
         let obj = {Items: result};
         console.log(obj);
         res.send(obj);
+    })
+})
+app.post('/leaderboardpost', (req,res) => {
+    console.log(req.body);
+    postScores(req.body, () => {
+        res.send(200);
     })
 })
 

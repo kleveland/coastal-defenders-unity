@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class KeyboardController : MonoBehaviour {
@@ -42,7 +43,7 @@ public class KeyboardController : MonoBehaviour {
             output = output.Substring(0, output.Length - 1);
         } else if(val.Equals("Enter"))
         {
-
+            StartCoroutine(Upload(output,1000,200,300,500));
         } else if((output.Length+1) <= 2)
         {
             output += val;
@@ -50,16 +51,36 @@ public class KeyboardController : MonoBehaviour {
         Debug.Log(output);
         initials.text = output;
     }
+    IEnumerator Upload(string initials, int total_score, int land_saved_score, int human_protection_score, int animal_protection_score)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("initials", initials);
+        form.AddField("total_score", total_score);
+        form.AddField("land_saved_score", land_saved_score);
+        form.AddField("human_protection_score", human_protection_score);
+        form.AddField("animal_protection_score", animal_protection_score);
+
+        UnityWebRequest www = UnityWebRequest.Post("localhost:4000/leaderboardpost", form);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log("Form upload complete!");
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(trans.localPosition);
         if (slide && trans.localPosition.y >= -840)
         {
             trans.localPosition = new Vector2(0, trans.localPosition.y - 20);
         }
-        else if (!slide && trans.localPosition.y <= -20)
+        else if (!slide && trans.localPosition.y <= -90)
         {
             trans.localPosition = new Vector2(0, trans.localPosition.y + 20);
 
