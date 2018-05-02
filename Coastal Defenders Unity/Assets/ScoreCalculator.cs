@@ -39,4 +39,14 @@ public class ScoreCalculator : MonoBehaviour
     {
 
     }
+
+    public int[] getScores()
+    {
+        int[] val = new int[4];
+        val[0] = netScore;
+        val[1] = netLandScore;
+        val[2] = netAnimalScore;
+        val[3] = netHumanScore;
+        return val;
+    }
 }

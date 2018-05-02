@@ -39,7 +39,7 @@ function getScores(cb) {
     })
 }
 
-function postScores(dat) {
+function postScores(dat, cb) {
     let insertDat = [];
     insertDat.push(dat.initials);
     insertDat.push(dat.total_score);
@@ -64,7 +64,7 @@ app.get('/leaderboard/scores', (req, res) => {
 app.post('/leaderboardpost', (req,res) => {
     console.log(req.body);
     postScores(req.body, () => {
-        res.send(200);
+        res.sendStatus(200);
     })
 })
 

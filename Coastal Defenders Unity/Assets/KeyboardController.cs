@@ -12,6 +12,8 @@ public class KeyboardController : MonoBehaviour {
     public Text initials;
     private RectTransform trans;
     private bool slide;
+    public ScoreCalculator scores;
+    public leaderBoardPopulator scoreboard;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +45,9 @@ public class KeyboardController : MonoBehaviour {
             output = output.Substring(0, output.Length - 1);
         } else if(val.Equals("Enter"))
         {
-            StartCoroutine(Upload(output,1000,200,300,500));
+          int[] score_vals = scores.getScores();
+            Debug.Log(score_vals);
+            StartCoroutine(Upload(output, score_vals[0], score_vals[1], score_vals[2], score_vals[3]));
         } else if((output.Length+1) <= 2)
         {
             output += val;
@@ -51,10 +55,10 @@ public class KeyboardController : MonoBehaviour {
         Debug.Log(output);
         initials.text = output;
     }
-    IEnumerator Upload(string initials, int total_score, int land_saved_score, int human_protection_score, int animal_protection_score)
+    IEnumerator Upload(string init, int total_score, int land_saved_score, int human_protection_score, int animal_protection_score)
     {
         WWWForm form = new WWWForm();
-        form.AddField("initials", initials);
+        form.AddField("initials", init);
         form.AddField("total_score", total_score);
         form.AddField("land_saved_score", land_saved_score);
         form.AddField("human_protection_score", human_protection_score);
@@ -70,6 +74,10 @@ public class KeyboardController : MonoBehaviour {
         else
         {
             Debug.Log("Form upload complete!");
+            scoreboard.getScoresAgain();
+            slide = !slide;
+            initials.text = "";
+            output = "";
         }
     }
 

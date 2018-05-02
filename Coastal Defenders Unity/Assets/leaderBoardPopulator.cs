@@ -11,8 +11,12 @@ public class leaderBoardPopulator : MonoBehaviour {
     private string scoreText;
     // Use this for initialization
 
-
     void Awake()
+    {
+        StartCoroutine(getScores());
+    }
+
+    public void getScoresAgain()
     {
         StartCoroutine(getScores());
     }
