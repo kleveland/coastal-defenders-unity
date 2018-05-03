@@ -32,11 +32,11 @@ public class gameInit : MonoBehaviour {
                 break;
         }
 
-        solutionList[0].count = Random.Range(0, 3);
-        solutionList[1].count = Random.Range(0, 3);
-        solutionList[2].count = Random.Range(0, 2);
-        solutionList[3].count = Random.Range(0, 2);
-        solutionList[4].count = Random.Range(1, 3);
+        solutionList[0].count = Random.Range(0, 2);
+        solutionList[1].count = Random.Range(0, 2);
+        solutionList[2].count = Random.Range(0, 1);
+        solutionList[3].count = Random.Range(0, 1);
+        solutionList[4].count = Random.Range(1, 2);
         solutionList[0].startcount = solutionList[0].count;
         solutionList[1].startcount = solutionList[1].count;
         solutionList[2].startcount = solutionList[2].count;
