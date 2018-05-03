@@ -14,6 +14,8 @@ public class SolutionController : MonoBehaviour
     public string resourcename;
     public int resourcecount;
     private SpriteRenderer render;
+    private Sprite startsprite;
+    private Sprite startcircle;
     private SpriteRenderer tier_circle;
     //private Sprite[] resource;
     public int count = 0;
@@ -48,7 +50,9 @@ public class SolutionController : MonoBehaviour
         minusButton = buttons[1].GetComponent<Button>();
         SpriteRenderer[] spritelist = this.GetComponentsInChildren<SpriteRenderer>();
         render = spritelist[2];
+        startsprite = render.sprite;
         tier_circle = spritelist[3];
+        startcircle = tier_circle.sprite;
         Debug.Log(tier_circle);
         pointsLeftText = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsController>();
         /*resource = new Sprite[resourcecount];
@@ -65,20 +69,24 @@ public class SolutionController : MonoBehaviour
     {
         if (count == 0)
         {
-            render.color = inactive;
+            render.sprite = null;
+            tier_circle.sprite = null;
+            tierTracker.text = "";
         }
         else
         {
-            render.color = active;
+            render.sprite = startsprite;
+            tier_circle.sprite = startcircle;
+            tierTracker.text = count.ToString();
         }
-        if (count == startcount)
+        /*if (count == startcount)
         {
             tier_circle.color = start_tier_color;
         }
         else
         {
             tier_circle.color = diff_tier_color;
-        }
+        }*/
         /*if (count == 0)
         {
             render.sprite = null;
@@ -95,26 +103,30 @@ public class SolutionController : MonoBehaviour
         {
             render.sprite = resource[2];
         }*/
-        tierTracker.text = count.ToString();
     }
 
     void PlusTaskOnClick()
     {
         Debug.Log("Clicked plus button");
         Debug.Log("startcount:" + startcount);
-        if (count < startcount && count != resourcecount && (pointsLeftText.pointsCount- (int)(cost * 0.5)) >= 0)
+        /* if (count < startcount && count != resourcecount && (pointsLeftText.pointsCount- (int)(cost * 0.5)) >= 0)
+         {
+             pointsLeftText.pointsCount -= (int)(cost * 0.5);
+             count++;
+         }
+         else if (count >= startcount && count != resourcecount && (pointsLeftText.pointsCount - cost) >= 0)
+         {
+             pointsLeftText.pointsCount -= cost;
+             count++;
+         }*/
+        if ((count+1) == 3 && (pointsLeftText.pointsCount - cost) >= 0)
         {
-            pointsLeftText.pointsCount -= (int)(cost * 0.5);
             count++;
-        }
-        else if (count >= startcount && count != resourcecount && (pointsLeftText.pointsCount - cost) >= 0)
-        {
             pointsLeftText.pointsCount -= cost;
-            count++;
-        }
-        if (count >= 3)
+        } else if((count+1) < 3 && (pointsLeftText.pointsCount - cost) >= 0)
         {
-            count = 3;
+            count++;
+            pointsLeftText.pointsCount -= cost;
         }
         Debug.Log(count);
     }
@@ -124,7 +136,7 @@ public class SolutionController : MonoBehaviour
         Debug.Log("Clicked minus button");
         Debug.Log("startcount:" + startcount);
 
-        if (count <= startcount && count != 0)
+        /*if (count <= startcount && count != 0)
         {
             pointsLeftText.pointsCount += (int)(cost * 0.5);
             count--;
@@ -133,10 +145,15 @@ public class SolutionController : MonoBehaviour
         {
             pointsLeftText.pointsCount += cost;
             count--;
-        }
-        if (count < 0)
+        }*/
+        if ((count-1) == 0)
         {
-            count = 0;
+            count--;
+            pointsLeftText.pointsCount += cost;
+        } else if((count-1) > 0)
+        {
+            count--;
+            pointsLeftText.pointsCount += cost;
         }
         Debug.Log(count);
     }

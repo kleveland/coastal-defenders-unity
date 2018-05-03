@@ -32,7 +32,7 @@ var con = mysql.createConnection({
 });
 
 function getScores(cb) {
-    con.query("SELECT * FROM scores ORDER BY total_score", function (err, result, fields) {
+    con.query("SELECT * FROM scores ORDER BY total_score DESC LIMIT 10", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
         cb(result);

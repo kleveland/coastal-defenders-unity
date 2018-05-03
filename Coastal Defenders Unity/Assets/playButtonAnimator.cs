@@ -19,7 +19,7 @@ public class playButtonAnimator : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(trans.localScale);
+        //Debug.Log(trans.localScale);
         if (trans.localScale.x < scaletracker)
         {
             trans.localScale += new Vector3(speed, speed, 0);

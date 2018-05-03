@@ -11,8 +11,12 @@ public class leaderBoardPopulator : MonoBehaviour {
     private string scoreText;
     // Use this for initialization
 
-    void Awake()
+    void Start()
     {
+        leaderboards = this.GetComponent<Text>();
+        Debug.Log("TEST");
+        Debug.Log(leaderboards.text);
+        leaderboards.text = "Leaderboard";
         StartCoroutine(getScores());
     }
 
@@ -34,18 +38,19 @@ public class leaderBoardPopulator : MonoBehaviour {
                 scoretext += (i + 1) + "." + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score + "\n";
                 Debug.Log(i + ": " + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score);
             }
+            Debug.Log("LEADERBOARD");
+            Debug.Log(leaderboards.text);
+            Debug.Log(scoretext);
+            leaderboards.text = scoretext;
             scoreText = scoretext;
 
         }
     }
-
-    void Start () {
-        leaderboards = this.GetComponent<Text>();
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
+        //Debug.Log("HERE");
+        //Debug.Log(scoreText);
         leaderboards.text = scoreText;
 	}
 }

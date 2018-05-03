@@ -21,14 +21,14 @@ public class KeyboardController : MonoBehaviour {
         trans = this.GetComponent<RectTransform>();
         output = "";
         keys = this.GetComponentsInChildren<KeyboardKey>();
-        Debug.Log(keys[0].but);
+        //Debug.Log(keys[0].but);
         slideButton.onClick.AddListener(setSlide);
         for(int i=0; i<keys.Length; i++)
         {
-            Debug.Log(keys[i].character);
+            //Debug.Log(keys[i].character);
             string tempStr = keys[i].character;
             keys[i].but.onClick.AddListener(() => { onClickOutput(tempStr); });
-            Debug.Log(keys[i].character);
+            //Debug.Log(keys[i].character);
         }
 	}
 
