@@ -13,7 +13,7 @@ public class KeyboardKey : MonoBehaviour {
 	void Awake () {
         this.GetComponentInChildren<Text>().text = character;
         but = (Button) this.GetComponent("Button");
-        Debug.Log(this.GetComponent<Button>());
+        //Debug.Log(this.GetComponent<Button>());
     }
 	
 	// Update is called once per frame

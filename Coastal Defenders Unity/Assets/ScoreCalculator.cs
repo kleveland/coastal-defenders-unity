@@ -29,23 +29,23 @@ public class ScoreCalculator : MonoBehaviour
         netHumanScore = Mathf.RoundToInt(620f * Mathf.Log10(PlayerPrefs.GetFloat("netHuman") + 1));
         netScore = netLandScore + netHumanScore + netAnimalScore;
         PlayerPrefs.SetFloat("netScore", netScore);
-        netScoreText.text = "Your Score\n<size=86> " + Mathf.RoundToInt(netScore) + "</size>";
+        netScoreText.text = Mathf.RoundToInt(netScore).ToString();
         if(DiffController.levelselect == 1)
         {
-            humanPBar.offsetMax = new Vector2((float)(-(-107.5+315*(PlayerPrefs.GetFloat("netHuman") / 20))), humanPBar.offsetMax.y);
-            propertyPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netLand") / 20))), propertyPBar.offsetMax.y);
-            ecoPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netAnimal") / 20))), ecoPBar.offsetMax.y);
+            humanPBar.offsetMax = new Vector2((float)(-( 207.5 - 315*(PlayerPrefs.GetFloat("netHuman") / 20))), humanPBar.offsetMax.y);
+            propertyPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netLand") / 20))), propertyPBar.offsetMax.y);
+            ecoPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netAnimal") / 20))), ecoPBar.offsetMax.y);
         } else if(DiffController.levelselect == 2)
         {
-            humanPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netHuman") / 30))), humanPBar.offsetMax.y);
-            propertyPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netLand") / 25))), propertyPBar.offsetMax.y);
-            ecoPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netAnimal") / 25))), ecoPBar.offsetMax.y);
+            humanPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netHuman") / 30))), humanPBar.offsetMax.y);
+            propertyPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netLand") / 25))), propertyPBar.offsetMax.y);
+            ecoPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netAnimal") / 25))), ecoPBar.offsetMax.y);
 
         } else if(DiffController.levelselect == 3)
         {
-            humanPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netHuman") / 15))), humanPBar.offsetMax.y);
-            propertyPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netLand") / 35))), propertyPBar.offsetMax.y);
-            ecoPBar.offsetMax = new Vector2((float)(-(-107.5 + 315 * (PlayerPrefs.GetFloat("netAnimal") / 25))), ecoPBar.offsetMax.y);
+            humanPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netHuman") / 15))), humanPBar.offsetMax.y);
+            propertyPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netLand") / 35))), propertyPBar.offsetMax.y);
+            ecoPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netAnimal") / 25))), ecoPBar.offsetMax.y);
         }
         Debug.Log("VALUES");
         Debug.Log((PlayerPrefs.GetFloat("netHuman")));

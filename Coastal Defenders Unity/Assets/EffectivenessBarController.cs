@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EffectivenessBarController : MonoBehaviour
 {
@@ -9,8 +10,14 @@ public class EffectivenessBarController : MonoBehaviour
     public float minX;
     public float maxX;
 
+    private float time;
+    public float duration;
+    public static int effectCond;
+
     private float target;
     public RectTransform effBar;
+    public Image effBarImage;
+    private Color currentCol;
     private Vector2 init;
     public float speed;
     //0 dune
@@ -21,14 +28,15 @@ public class EffectivenessBarController : MonoBehaviour
     public SolutionController[] solutions;
 
     //values go land, human, animal
-    public float[] bulkheadScores = new float[] { 5, 5, 1 };
-    public float[] seagrassScores = new float[] { 3, 1, 3 };
-    public float[] sandduneScores = new float[] { 3, 2, 2 };
-    public float[] floodgateScores = new float[] { 4, 6, 2 };
-    public float[] oysterScores = new float[] { 1, 1, 5 };
+    public float[] bulkheadScores;// = new float[] { 5, 5, 1 };
+    public float[] seagrassScores;// = new float[] { 3, 1, 3 };
+    public float[] sandduneScores;// = new float[] { 3, 2, 2 };
+    public float[] floodgateScores;// = new float[] { 4, 6, 2 };
+    public float[] oysterScores;// = new float[] { 1, 1, 5 };
     // Use this for initialization
     void Awake()
     {
+        effectCond = 1;
         effBar = this.GetComponent<RectTransform>();
     }
 
@@ -40,7 +48,7 @@ public class EffectivenessBarController : MonoBehaviour
         PlayerPrefs.SetFloat("netLand", netLand);
         PlayerPrefs.SetFloat("netHuman", netHuman);
         PlayerPrefs.SetFloat("netAnimal", netAnimal);
-        Debug.Log("netLand:" + netLand + "\n netHuman:" + netHuman + "\n netAnimal:" + netAnimal);
+        //Debug.Log("netLand:" + netLand + "\n netHuman:" + netHuman + "\n netAnimal:" + netAnimal);
         return ((.5f * (netLand / 25f)) + (.25f * (netHuman / 25f)) + (.25f * (netAnimal / 25f)));
 
     }
@@ -54,7 +62,7 @@ public class EffectivenessBarController : MonoBehaviour
 
         target = barDisplay * diffX + minX;
 
-        Debug.Log("Target:" + target);
+        //Debug.Log("Target:" + target);
         if (target >= maxX)
         {
             effBar.localPosition = new Vector2(maxX, effBar.localPosition.y);
@@ -66,6 +74,44 @@ public class EffectivenessBarController : MonoBehaviour
         else if (effBar.localPosition.x >= (target + speed / 2))
         {
             effBar.localPosition = new Vector2(effBar.localPosition.x - speed, effBar.localPosition.y);
+        }
+
+        if(barDisplay < 0.3)
+        {
+            time += Time.deltaTime / duration;
+            effBarImage.color = Color.Lerp(currentCol, Color.red, time);
+            if(effBarImage.color.Equals(Color.red))
+            {
+                currentCol = Color.red;
+                Debug.Log("red");
+                effectCond = 1;
+                time = 0;
+            }
+
+        } else if(barDisplay <0.7)
+        {
+            time += Time.deltaTime / duration;
+            effBarImage.color = Color.Lerp(currentCol, Color.yellow, time);
+            if (effBarImage.color.Equals(Color.yellow))
+            {
+                currentCol = Color.yellow;
+                Debug.Log("YELLOW");
+                effectCond = 2;
+                time = 0;
+            }
+
+        } else if(barDisplay <1)
+        {
+            time += Time.deltaTime / duration;
+            effBarImage.color = Color.Lerp(currentCol, Color.green, time);
+            if (effBarImage.color.Equals(Color.green))
+            {
+                currentCol = Color.green;
+                Debug.Log("green");
+                effectCond = 3;
+                time = 0;
+            }
+
         }
     }
 }

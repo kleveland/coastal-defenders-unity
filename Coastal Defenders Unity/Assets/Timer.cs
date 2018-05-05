@@ -8,17 +8,32 @@ public class Timer : MonoBehaviour
     public int timeLeft;
     public Text countdownText;
     public string navToScene;
+    public bool startTimer;
+    public static bool endgame;
+    public static bool stopTimer;
     // Use this for initialization
     void Start()
     {
-        StartCoroutine("LoseTime");
-        Time.timeScale = 1;
+        stopTimer = false;
+        endgame = false;
+        startTimer = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+
+        if (startTimer)
+        {
+            StartCoroutine("LoseTime");
+            Time.timeScale = 1;
+            startTimer = !startTimer;
+        }
+
+        if(stopTimer)
+        {
+            StopCoroutine("LoseTime");
+        }
         //timer in seconds
         //if timer runs to 0, automatically start simulation
 
@@ -26,7 +41,8 @@ public class Timer : MonoBehaviour
         {
             StopCoroutine("LoseTime");
             countdownText.text = "Times Up!";
-            SceneManager.LoadScene(navToScene);
+            endgame = true;
+            //SceneManager.LoadScene(navToScene);
         }
 
         if (timeLeft < 10)

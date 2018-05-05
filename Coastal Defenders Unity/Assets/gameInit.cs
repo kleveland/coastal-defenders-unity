@@ -16,19 +16,19 @@ public class gameInit : MonoBehaviour {
         switch(DiffController.levelselect)
         {
             case 1:
-                points.pointsCount = 120;
+                points.pointsCount = 190;
                 break;
 
             case 2:
-                points.pointsCount = 100;
+                points.pointsCount = 210;
                 break;
 
             case 3:
-                points.pointsCount = 80;
+                points.pointsCount = 230;
                 break;
 
             default:
-                points.pointsCount = 120;
+                points.pointsCount = 190;
                 break;
         }
 
