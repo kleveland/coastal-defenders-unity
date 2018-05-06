@@ -9,6 +9,7 @@ public class KeyboardController : MonoBehaviour {
     private KeyboardKey[] keys;
     private string output;
     public Button slideButton;
+    public static bool slideDisable;
     public Text initials;
     private RectTransform trans;
     private bool slide;
@@ -17,6 +18,7 @@ public class KeyboardController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        slideButton.enabled = slideDisable;
         slide = true;
         trans = this.GetComponent<RectTransform>();
         output = "";
@@ -76,6 +78,8 @@ public class KeyboardController : MonoBehaviour {
             Debug.Log("Form upload complete!");
             scoreboard.getScoresAgain();
             slide = !slide;
+            slideDisable = false;
+            slideButton.enabled = slideDisable;
             initials.text = "";
             output = "";
         }

@@ -13,21 +13,43 @@ public class textBlurbController : MonoBehaviour {
 		switch(DiffController.levelselect)
         {
             case 1:
-                blurb.text = "case1";
                 button.sprite = buttons[0];
                 break;
             case 2:
-                blurb.text = "case2";
                 button.sprite = buttons[1];
                 break;
             case 3:
-                blurb.text = "case3";
                 button.sprite = buttons[2];
                 break;
             default:
-                blurb.text = "case1";
                 button.sprite = buttons[0];
                 break;
+        }
+        float val = EffectivenessBarController.barDisplay;
+        if (val < 0.25)
+        {
+            blurb.text = "Oh no! You failed to protect the coast. Try again?";
+
+        } else if(val <0.5)
+        {
+            blurb.text = "Looks like your plan was no match for the storm surge. Better luck next time.";
+
+        } else if(val <0.75)
+        {
+            blurb.text = "Your solutions kept most of the storm surge at bay. Think you can do better?";
+
+        } else if(val <0.9)
+        {
+            blurb.text = "Strong work! You are an amazing Coastal Defender!";
+
+        } else if(val < 1)
+        {
+            blurb.text = "Whoa! You are the ultimate Coastal Defender!";
+
+        } else
+        {
+            blurb.text = "Try again!";
+
         }
 	}
 	

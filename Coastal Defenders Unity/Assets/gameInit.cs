@@ -9,6 +9,7 @@ public class gameInit : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        KeyboardController.slideDisable = true;
         Debug.Log("DIFFICULTY");
         Debug.Log(DiffController.levelselect);
         points = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsController>();
@@ -16,7 +17,7 @@ public class gameInit : MonoBehaviour {
         switch(DiffController.levelselect)
         {
             case 1:
-                points.pointsCount = 190;
+                points.pointsCount = 230;
                 break;
 
             case 2:
@@ -24,11 +25,11 @@ public class gameInit : MonoBehaviour {
                 break;
 
             case 3:
-                points.pointsCount = 230;
+                points.pointsCount = 190;
                 break;
 
             default:
-                points.pointsCount = 190;
+                points.pointsCount = 230;
                 break;
         }
 

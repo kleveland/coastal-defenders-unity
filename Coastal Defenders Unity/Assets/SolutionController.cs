@@ -8,19 +8,21 @@ using UnityEngine.UI;
 public class SolutionController : MonoBehaviour
 {
     private PointsController pointsLeftText;
-    private Text tierTracker;
+    public Text tierTracker;
     private Button plusButton;
     private Button minusButton;
     public string resourcename;
     public int resourcecount;
     private SpriteRenderer render;
     private Sprite startsprite;
+    public Image solImage;
     private Sprite startcircle;
     private SpriteRenderer tier_circle;
-    //private Sprite[] resource;
+    public Image tier_circle_img;
+        //private Sprite[] resource;
     public int count = 0;
     public int cost;
-    private Text costText;
+    public Text costText;
     public int startcount;
     public int bulkheadTier, sandduneTier, sandbagTier, seagrassTier;
     //values go land, human, animal
@@ -29,6 +31,7 @@ public class SolutionController : MonoBehaviour
     private Color active;
     private Color start_tier_color;
     private Color diff_tier_color;
+    private Color initTierCircleCol;
 
     private float effectiveness;
     //effectiveness bar display
@@ -37,23 +40,24 @@ public class SolutionController : MonoBehaviour
 
     void Awake()
     {
+        initTierCircleCol = tier_circle_img.color;
         inactive = new Color(1f, 1f, 1f, inactive_opacity);
         active = new Color(1f, 1f, 1f, 1f);
         start_tier_color = new Color(70 / 255.0f, 193 / 255.0f, 73 / 255.0f, 1f);
         diff_tier_color = new Color(140 / 255.0f, 25 / 255.0f, 36 / 255.0f, 1f);
         Button[] buttons = this.GetComponentsInChildren<Button>();
-        Text[] textinp = this.GetComponentsInChildren<Text>();
-        tierTracker = textinp[1];
-        costText = textinp[0];
+        //Text[] textinp = this.GetComponentsInChildren<Text>();
+        //tierTracker = textinp[1];
+        //costText = textinp[0];
         costText.text = cost.ToString();
         plusButton = buttons[0].GetComponent<Button>();
         minusButton = buttons[1].GetComponent<Button>();
         SpriteRenderer[] spritelist = this.GetComponentsInChildren<SpriteRenderer>();
-        render = spritelist[2];
-        startsprite = render.sprite;
-        tier_circle = spritelist[3];
-        startcircle = tier_circle.sprite;
-        Debug.Log(tier_circle);
+        //render = spritelist[2];
+        //startsprite = render.sprite;
+        //tier_circle = spritelist[3];
+        //startcircle = tier_circle.sprite;
+        //Debug.Log(tier_circle);
         pointsLeftText = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsController>();
         /*resource = new Sprite[resourcecount];
         for (int i = 0; i < resourcecount; i++)
@@ -69,14 +73,18 @@ public class SolutionController : MonoBehaviour
     {
         if (count == 0)
         {
-            render.sprite = null;
-            tier_circle.sprite = null;
+            //render.sprite = null;
+            solImage.color = Color.clear;
+            tier_circle_img.color = Color.clear;
+            //tier_circle.sprite = null;
             tierTracker.text = "";
         }
         else
         {
-            render.sprite = startsprite;
-            tier_circle.sprite = startcircle;
+            solImage.color = Color.white;
+            tier_circle_img.color = initTierCircleCol;
+            //render.sprite = startsprite;
+            //tier_circle.sprite = startcircle;
             tierTracker.text = count.ToString();
         }
         /*if (count == startcount)

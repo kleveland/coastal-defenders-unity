@@ -22,7 +22,7 @@ public class streamVideo : MonoBehaviour
     public UnityEngine.Video.VideoPlayer videoPlayer;
     private VideoSource videoSource;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     // Use this for initialization
     void Awake()
@@ -35,6 +35,9 @@ public class streamVideo : MonoBehaviour
     {
         //Disable Play on Awake for both Video and Audio
         videoPlayer.playOnAwake = false;
+
+        videoPlayer.EnableAudioTrack(0, true);
+        videoPlayer.SetTargetAudioSource(0, audioSource);
 
         //Wait until video is prepared
         while (!videoPlayer.isPrepared)

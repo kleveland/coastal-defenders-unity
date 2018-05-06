@@ -11,8 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/difficulty.unity
     guid: 633cc4e993b61f54297a9725819f3af9
-  - enabled: 1
-    path: Assets/leaderboard.unity
+  - enabled: 0
+    path: 
     guid: f7c9f19949b2d5948a84ce86a3c51c4c
   - enabled: 1
     path: Assets/howtoplay.unity
@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/endgame.unity
     guid: e941240346bb4464d9f96c44c386118e
+  - enabled: 1
+    path: Assets/learnmore.unity
+    guid: 3e6ee8eb596cebf4f937ea2be359dc7d

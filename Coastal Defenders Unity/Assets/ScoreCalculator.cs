@@ -16,7 +16,7 @@ public class ScoreCalculator : MonoBehaviour
     public Image humanBar;
     public Image propertyBar;
     public Image ecosystemBar;
-    private int netScore;
+    public static int netScore;
     private int netLandScore;
     private int netAnimalScore;
     private int netHumanScore;
@@ -46,6 +46,19 @@ public class ScoreCalculator : MonoBehaviour
             humanPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netHuman") / 15))), humanPBar.offsetMax.y);
             propertyPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netLand") / 35))), propertyPBar.offsetMax.y);
             ecoPBar.offsetMax = new Vector2((float)(-( 207.5 - 315 * (PlayerPrefs.GetFloat("netAnimal") / 25))), ecoPBar.offsetMax.y);
+        }
+
+        if(-humanPBar.offsetMax.x < -107.5)
+        {
+            humanPBar.offsetMax = new Vector2((float)-(-107.5), humanPBar.offsetMax.y);
+        }
+        if (-propertyPBar.offsetMax.x < -107.5)
+        {
+            propertyPBar.offsetMax = new Vector2((float)-(-107.5), propertyPBar.offsetMax.y);
+        }
+        if (-ecoPBar.offsetMax.x < -107.5)
+        {
+            ecoPBar.offsetMax = new Vector2((float)-(-107.5), ecoPBar.offsetMax.y);
         }
         Debug.Log("VALUES");
         Debug.Log((PlayerPrefs.GetFloat("netHuman")));

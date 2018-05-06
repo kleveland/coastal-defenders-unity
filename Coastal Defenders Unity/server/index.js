@@ -31,6 +31,14 @@ var con = mysql.createConnection({
     port: config.database.port
 });
 
+function getScoresAll(cb) {
+    con.query("SELECT * FROM scores ORDER BY total_score DESC", function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+        cb(result);
+    })
+}
+
 function getScores(cb) {
     con.query("SELECT * FROM scores ORDER BY total_score DESC LIMIT 10", function (err, result, fields) {
         if (err) throw err;
@@ -47,8 +55,8 @@ function postScores(dat, cb) {
     insertDat.push(dat.human_protection_score);
     insertDat.push(dat.animal_protection_score);
     console.log(insertDat);
-    con.query("INSERT INTO scores (player_initials, total_score,land_saved_score,human_protection_score,animal_protection_score) VALUES (?)", [insertDat], function(err, result) {
-       if(err) throw err;
+    con.query("INSERT INTO scores (player_initials, total_score,land_saved_score,human_protection_score,animal_protection_score) VALUES (?)", [insertDat], function (err, result) {
+        if (err) throw err;
         cb();
     });
 }
@@ -56,12 +64,26 @@ function postScores(dat, cb) {
 app.get('/leaderboard/scores', (req, res) => {
     console.log("request found");
     getScores((result) => {
-        let obj = {Items: result};
+        let obj = {
+            Items: result
+        };
         console.log(obj);
         res.send(obj);
     })
 })
-app.post('/leaderboardpost', (req,res) => {
+
+app.get('/leaderboard/allscores', (req, res) => {
+    console.log("request found");
+    getScoresAll((result) => {
+        let obj = {
+            Items: result
+        };
+        console.log(obj);
+        res.send(obj);
+    })
+})
+
+app.post('/leaderboardpost', (req, res) => {
     console.log(req.body);
     postScores(req.body, () => {
         res.sendStatus(200);

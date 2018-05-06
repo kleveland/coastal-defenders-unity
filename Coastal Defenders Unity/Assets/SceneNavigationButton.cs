@@ -18,7 +18,7 @@ public class SceneNavigationButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        SceneManager.LoadScene(navToScene);
+       SceneManager.LoadScene(navToScene);
     }
 
     // Update is called once per frame

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class leaderBoardPopulator : MonoBehaviour {
 
-    public string url = "localhost:4000/leaderboard/scores";
+    public string url = "localhost:4000/leaderboard/allscores";
     private Text leaderboards;
     private ScoreEntry[] scoreEntries;
     private string scoreText;
+    public static int scorePlace;
     // Use this for initialization
 
     void Start()
@@ -33,10 +34,33 @@ public class leaderBoardPopulator : MonoBehaviour {
             yield return www;
             scoreEntries = JsonHelper.FromJson<ScoreEntry>(www.text);
             string scoretext = "";
+            bool setScore = false;
             for (int i = 0; i < scoreEntries.Length; i++)
             {
-                scoretext += (i + 1) + "." + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score + "\n";
-                Debug.Log(i + ": " + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score);
+                if ((int)ScoreCalculator.netScore > (int)scoreEntries[i].total_score && !setScore)
+                {
+                    scorePlace = i + 1;
+                    break;
+                }
+                else if (!setScore)
+                {
+                    scorePlace = i + 2;
+                }
+            }
+            Debug.Log(scoreEntries.Length);
+            Debug.Log("PLACE IN RANK");
+            Debug.Log(scorePlace);
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 9)
+                {
+                    scoretext += " <size=30>" + (i + 1) + ".</size> " + scoreEntries[i].player_initials + "  " + scoreEntries[i].total_score;
+                }
+                else
+                {
+                    scoretext += " <size=30>" + (i + 1) + ".</size> " + scoreEntries[i].player_initials + "  " + scoreEntries[i].total_score + "\n";
+                }
+                    Debug.Log(i + ": " + scoreEntries[i].player_initials + ": " + scoreEntries[i].total_score);
             }
             Debug.Log("LEADERBOARD");
             Debug.Log(leaderboards.text);
