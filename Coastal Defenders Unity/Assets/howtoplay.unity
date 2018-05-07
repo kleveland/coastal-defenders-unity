@@ -1350,7 +1350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: -4500
-  speed: -7
+  speed: -9
+  doneScroll: 0
 --- !u!114 &1013637505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,7 +1385,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Hurricane-related storm surge can result in high waves and flooding.                                     It
-    causes damage to property, ecosystems, injuries, and even deaths.                                    But,
+    causes damage to property, ecosystems, injuries, and even deaths.                               But,
     with a combination of solutions, we may be able to lessen their effects. How much
     of the coast can you save?
 --- !u!222 &1013637506
@@ -1510,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1678346306}
   sceneToLoad: difficulty
+  scrollText: {fileID: 1013637504}
   videoPlayer: {fileID: 1678346308}
   audioSource: {fileID: 1678346310}
 --- !u!82 &1678346310

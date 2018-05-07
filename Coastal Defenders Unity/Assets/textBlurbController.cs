@@ -42,7 +42,7 @@ public class textBlurbController : MonoBehaviour {
         {
             blurb.text = "Strong work! You are an amazing Coastal Defender!";
 
-        } else if(val < 1)
+        } else if(val < 2)
         {
             blurb.text = "Whoa! You are the ultimate Coastal Defender!";
 

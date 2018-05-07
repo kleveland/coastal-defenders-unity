@@ -56,17 +56,14 @@ public class gameEnd : MonoBehaviour {
         if(EffectivenessBarController.barDisplay < 0.3)
         {
             videoPlayer.clip = videoClips[0];
-
         }
         else if (EffectivenessBarController.barDisplay < 0.7)
         {
             videoPlayer.clip = videoClips[1];
-
         }
-        else if (EffectivenessBarController.barDisplay < 1)
+        else if (EffectivenessBarController.barDisplay < 2)
         {
             videoPlayer.clip = videoClips[2];
-
         }
 
         if(DiffController.levelselect == 1)

@@ -50,9 +50,14 @@ public class leaderBoardPopulator : MonoBehaviour {
             Debug.Log(scoreEntries.Length);
             Debug.Log("PLACE IN RANK");
             Debug.Log(scorePlace);
-            for (int i = 0; i < 10; i++)
+            int leaderBoardLength = 10;
+            if(scoreEntries.Length < 10)
             {
-                if (i == 9)
+                leaderBoardLength = scoreEntries.Length;
+            }
+            for (int i = 0; i < leaderBoardLength; i++)
+            {
+                if (i == leaderBoardLength-1)
                 {
                     scoretext += " <size=30>" + (i + 1) + ".</size> " + scoreEntries[i].player_initials + "  " + scoreEntries[i].total_score;
                 }

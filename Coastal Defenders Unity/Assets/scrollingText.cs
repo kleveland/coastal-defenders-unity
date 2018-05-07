@@ -8,12 +8,14 @@ public class scrollingText : MonoBehaviour
     public float target;
     public float speed;
     private RectTransform leaderboard;
+    public bool doneScroll;
     private Vector2 init;
 
     // Use this for initialization
 
     void Start()
     {
+        doneScroll = false;
         leaderboard = this.GetComponent<RectTransform>();
         init = leaderboard.localPosition;
     }
@@ -21,6 +23,11 @@ public class scrollingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(leaderboard.localPosition.x <= target)
+        {
+            Debug.Log("DONE");
+            doneScroll = true;
+        }
         if (leaderboard.localPosition.x <= target)
         {
             leaderboard.localPosition = init;

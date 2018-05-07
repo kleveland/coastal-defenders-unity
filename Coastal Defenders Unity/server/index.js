@@ -14,7 +14,7 @@ let config = {
         host: "localhost",
         user: "root",
         password: "",
-        database: "comp585",
+        database: "coastaldefenders",
         port: 3306
     }
 };

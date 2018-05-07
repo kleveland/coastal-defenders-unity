@@ -20,6 +20,7 @@ public class howToPlayVideo : MonoBehaviour
 
     public RawImage image;
     public string sceneToLoad;
+    public scrollingText scrollText;
 
     public UnityEngine.Video.VideoPlayer videoPlayer;
     private VideoSource videoSource;
@@ -61,8 +62,9 @@ public class howToPlayVideo : MonoBehaviour
         //image.color = new Color(255.0f, 255.0f, 255.0f, 1f);
 
         Debug.Log("Playing Video");
-        while (videoPlayer.isPlaying)
+        while (videoPlayer.isPlaying || !scrollText.doneScroll)
         {
+            Debug.Log(scrollText.doneScroll);
             //Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)videoPlayer.time));
             yield return null;
         }

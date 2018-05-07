@@ -5679,7 +5679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Choose solutions to defend the cost.
+  m_Text: Choose solutions to defend the coast.
 --- !u!222 &1617526320
 CanvasRenderer:
   m_ObjectHideFlags: 0
